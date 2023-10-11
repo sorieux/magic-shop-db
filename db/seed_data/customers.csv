@@ -1,0 +1,166 @@
+customer_id, name, gender
+1, Harry Potter, Male
+2, Hermione Granger, Female
+3, Ron Weasley, Male
+4, Albus Dumbledore, Male
+5, Sirius Black, Male
+6, Remus Lupin, Male
+7, Severus Snape, Male
+8, Draco Malfoy, Male
+9, Ginny Weasley, Female
+10, Neville Longbottom, Male
+11, Luna Lovegood, Female
+12, Tom Riddle, Male
+13, Bellatrix Lestrange, Female
+14, Minerva McGonagall, Female
+15, Rubeus Hagrid, Male
+16, Dolores Umbridge, Female
+17, Cedric Diggory, Male
+18, Cho Chang, Female
+19, Fleur Delacour, Female
+20, Viktor Krum, Male
+21, Horace Slughorn, Male
+22, Nymphadora Tonks, Female
+23, Alastor Moody, Male
+24, Dobby, Male
+25, Kreacher, Male
+26, Lucius Malfoy, Male
+27, Narcissa Malfoy, Female
+28, James Potter, Male
+29, Lily Potter, Female
+30, Peter Pettigrew, Male
+31, Arthur Weasley, Male
+32, Molly Weasley, Female
+33, Fred Weasley, Male
+34, George Weasley, Male
+35, Percy Weasley, Male
+36, Bill Weasley, Male
+37, Charlie Weasley, Male
+38, Oliver Wood, Male
+39, Cornelius Fudge, Male
+40, Rufus Scrimgeour, Male
+41, Argus Filch, Male
+42, Vernon Dursley, Male
+43, Petunia Dursley, Female
+44, Dudley Dursley, Male
+45, Lavender Brown, Female
+46, Parvati Patil, Female
+47, Padma Patil, Female
+48, Dean Thomas, Male
+49, Seamus Finnigan, Male
+50, Colin Creevey, Male
+51, Dennis Creevey, Male
+52, Lily Luna Potter, Female
+53, James Sirius Potter, Male
+54, Albus Severus Potter, Male
+55, Rose Granger-Weasley, Female
+56, Hugo Granger-Weasley, Male
+57, Scorpius Malfoy, Male
+58, Teddy Lupin, Male
+59, Andromeda Tonks, Female
+60, Regulus Black, Male
+61, Winky, Female
+62, Aberforth Dumbledore, Male
+63, Ariana Dumbledore, Female
+64, Katie Bell, Female
+65, Angelina Johnson, Female
+66, Alicia Spinnet, Female
+67, Lee Jordan, Male
+68, Cormac McLaggen, Male
+69, Ernie Macmillan, Male
+70, Hannah Abbott, Female
+71, Susan Bones, Female
+72, Justin Finch-Fletchley, Male
+73, Terry Boot, Male
+74, Michael Corner, Male
+75, Anthony Goldstein, Male
+76, Lisa Turpin, Female
+77, Morag MacDougal, Female
+78, Millicent Bulstrode, Female
+79, Pansy Parkinson, Female
+80, Blaise Zabini, Male
+81, Gregory Goyle, Male
+82, Vincent Crabbe, Male
+83, Sybill Trelawney, Female
+84, Gilderoy Lockhart, Male
+85, Quirinus Quirrell, Male
+86, Filius Flitwick, Male
+87, Pomona Sprout, Female
+88, Rolanda Hooch, Female
+89, Rita Skeeter, Female
+90, Stan Shunpike, Male
+91, Ernie Prang, Male
+92, Madam Malkin, Female
+93, Ollivander, Male
+94, Madam Rosmerta, Female
+95, Nearly Headless Nick, Male
+96, Moaning Myrtle, Female
+97, Peeves, Male
+98, Amos Diggory, Male
+99, Bartemius Crouch Sr., Male
+100, Bartemius Crouch Jr., Male
+101, Ludo Bagman, Male
+102, Igor Karkaroff, Male
+103, Madam Hooch, Female
+104, Madame Maxime, Female
+105, Gabrielle Delacour, Female
+106, Apolline Delacour, Female
+107, Alecto Carrow, Female
+108, Amycus Carrow, Male
+109, Frank Bryce, Male
+110, Roger Davies, Male
+111, Marietta Edgecombe, Female
+112, Elphias Doge, Male
+113, Dedalus Diggle, Male
+114, Arabella Figg, Female
+115, Mundungus Fletcher, Male
+116, Nicolas Flamel, Male
+117, Antioch Peverell, Male
+118, Cadmus Peverell, Male
+119, Ignotus Peverell, Male
+120, Gregorovitch, Male
+121, Grindelwald, Male
+122, Fenrir Greyback, Male
+123, Mafalda Hopkirk, Female
+124, Helga Hufflepuff, Female
+125, Rowena Ravenclaw, Female
+126, Godric Gryffindor, Male
+127, Salazar Slytherin, Male
+128, Ilyius, Male
+129, Herpo the Foul, Male
+130, Merlin, Male
+131, Mopsus, Male
+132, Newt Scamander, Male
+133, Oswald Beamish, Male
+134, Gondoline Oliphant, Female
+135, Bowman Wright, Male
+136, Jocunda Sykes, Female
+137, Celestina Warbeck, Female
+138, Gwenog Jones, Female
+139, Lachlan the Lanky, Male
+140, Goodwin Kneen, Male
+141, Gunhilda of Gorsemoor, Female
+142, Cyprian Youdle, Male
+143, Daisy Dodderidge, Female
+144, Derwent Shimpling, Male
+145, Grogan Stump, Male
+146, Falco Aesalon, Male
+147, Uric the Oddball, Male
+148, Bridget Wenlock, Female
+149, Thaddeus Thurkell, Male
+150, Elfrida Clagg, Female
+151, Gulliver Pokeby, Male
+152, Justus Pilliwickle, Male
+153, Glanmore Peakes, Male
+154, Montague Knightley, Male
+155, Gideon Crumb, Male
+156, Heathcote Barbary, Male
+157, Merton Graves, Male
+158, Orsino Thruston, Male
+159, Herman Wintringham, Male
+160, Kirley Duke, Male
+161, Donaghan Tremlett, Male
+162, Myron Wagtail, Male
+163, Fabian Prewett, Male
+164, Gideon Prewett, Male
+165, Xenophilius Lovegood, Male

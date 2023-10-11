@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:16.0
+    environment:
+      POSTGRES_USER: harry
+      POSTGRES_PASSWORD: potter
+      POSTGRES_DB: magic-shop
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/seed_data:/data/seed_data
+
+volumes:
+  pgdata:
+

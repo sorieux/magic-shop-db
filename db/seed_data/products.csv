@@ -1,0 +1,72 @@
+product_id,product_name,category,unit_price
+1,Nimbus 2000,Broomstick,400.0
+2,Firebolt,Broomstick,700.0
+3,Cleansweep Eleven,Broomstick,350.0
+4,Comet 260,Broomstick,150.0
+5,Bluebottle,Broomstick,120.0
+6,Moontrimmer,Broomstick,500.0
+7,Silver Arrow,Broomstick,300.0
+8,Elder Wand,Wand,750.0
+9,Phoenix Feather Wand,Wand,450.0
+10,Dragon Heartstring Wand,Wand,500.0
+11,Unicorn Hair Wand,Wand,400.0
+12,Holly Wand,Wand,350.0
+13,Oak Wand,Wand,300.0
+14,Yew Wand,Wand,450.0
+15,Ash Wand,Wand,400.0
+16,Vine Wand,Wand,350.0
+17,Hawthorn Wand,Wand,320.0
+18,Standard Size 2 Pewter Cauldron,Cauldron,50.0
+19,Standard Size 3 Pewter Cauldron,Cauldron,60.0
+20,Collapsible Cauldron,Cauldron,80.0
+21,Golden Snitch,Quidditch Supplies,150.0
+22,Quaffle,Quidditch Supplies,20.0
+23,Bludger,Quidditch Supplies,130.0
+24,Broom Servicing Kit,Broomstick Accessory,25.0
+25,Broomstick Polish,Broomstick Accessory,15.0
+26,Broom Compass,Broomstick Accessory,30.0
+27,Aconite Potion,Potion,10.0
+28,Amortentia Potion,Potion,40.0
+29,Draught of Living Death,Potion,30.0
+30,Felix Felicis,Potion,45.0
+31,Polyjuice Potion,Potion,60.0
+32,Veritaserum,Potion,25.0
+33,Wolfsbane Potion,Potion,35.0
+34,Pepperup Potion,Potion,15.0
+35,Skele-Gro,Potion,55.0
+36,Elixir of Life,Potion,100.0
+37,Gillyweed,Potion,20.0
+38,Boomslang Skin,Potion Ingredient,5.0
+39,Bezoar,Potion Ingredient,30.0
+40,Mandrake Root,Potion Ingredient,10.0
+41,Unicorn Blood,Potion Ingredient,150.0
+42,Phoenix Tear,Potion Ingredient,200.0
+43,Dragon Blood,Potion Ingredient,50.0
+44,Crystal Phial,Potion Accessory,10.0
+45,Glass Phial,Potion Accessory,5.0
+46,Brass Scales,Potion Accessory,20.0
+47,Silver Scales,Potion Accessory,25.0
+48,Gold Scales,Potion Accessory,30.0
+49,Moonstone,Potion Ingredient,10.0
+50,Bloodstone,Potion Ingredient,15.0
+51,Monster Book of Monsters,Book,25.0
+52,Peruvian Instant Darkness Powder,Mischievous Items,30.0
+53,Extendable Ear,Mischievous Items,15.0
+54,Time Turner,Magic Device,250.0
+55,Marauder's Map,Magic Map,100.0
+56,Remembrall,Magic Device,20.0
+57,Tales of Beedle the Bard,Book,15.0
+58,Chocolate Frogs,Candies,5.0
+59,Bertie Bott's Every Flavor Beans,Candies,3.0
+60,Self-Stirring Cauldron,Cauldron,90.0
+61,Quick-Quotes Quill,Stationery,18.0
+62,Weasley's Wildfire Whiz-bangs,Fireworks,30.0
+63,Decoy Detonator,Mischievous Items,20.0
+64,Foe-Glass,Magic Device,150.0
+65,Sneakoscope,Magic Device,25.0
+66,Mimbulus Mimbletonia,Plant,30.0
+67,Spello-tape,Stationery,7.0
+68,Nosebleed Nougat,Candies,6.0
+69,Peruvian Vipertooth Dragon Hide Gloves,Clothing,50.0
+70,Mermaid's Song Record,Music,20.0
+71,Canary Creams,Candies,8.0
