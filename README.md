@@ -1,4 +1,4 @@
-# magic-store
+# magic-store-db
 
 This project sets up a Dockerized PostgreSQL database for a fictitious magic shop inspired by the Harry Potter universe. The database is initialized with sample data from CSV files.
 
