@@ -17,27 +17,29 @@ The goal of this database is to provide a fun and easy-to-set-up data source for
 git clone https://github.com/sorieux/magic-shop-db.git
 ```
 
-1. Navigate to the project directory:
+2. Navigate to the project directory:
 
 ```
 cd magic-shop-db
 ```
 
-1. Start the PostgreSQL container:
+3. Start the PostgreSQL container:
 
 ```
 docker compose up
 
 ```
 
+![It's Magic !!!](https://media.tenor.com/kKX3uh8mm_kAAAAC/i-love-magic-magical.gif)
+
 ## Accessing the Database
 
 Once the container is running, you can access the PostgreSQL database using any SQL client with the following credentials:
 
-**Host:** localhost
-**Port:** 5432
-**User:** harry
-**Password:** potter
+**Host:** localhost  
+**Port:** 5432  
+**User:** harry  
+**Password:** potter  
 **Database:** magic-shop
 
 ## Contributing
