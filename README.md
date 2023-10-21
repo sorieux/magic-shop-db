@@ -4,6 +4,39 @@ This project sets up a Dockerized PostgreSQL database for a fictitious magic sho
 
 The goal of this database is to provide a fun and easy-to-set-up data source for demonstrations or tests. I hope it can be of help to you, and please don't hesitate to share with me how you've made use of it.
 
+```mermaid
+classDiagram
+direction BT
+class tbl_customers {
+   varchar name
+   varchar gender
+   +integer customer_id
+}
+class tbl_order_details {
+   integer order_id
+   integer product_id
+   integer quantity
+   +integer order_detail_id
+}
+class tbl_orders {
+   integer customer_id
+   date order_date
+   varchar order_status
+   +integer order_id
+}
+class tbl_products {
+   varchar product_name
+   varchar category
+   numeric unit_price
+   +integer product_id
+}
+
+tbl_order_details  -->  tbl_orders : order_id
+tbl_order_details  -->  tbl_products : product_id
+tbl_orders  -->  tbl_customers : customer_id
+
+```
+
 ## Prerequisites
 
 - Docker
