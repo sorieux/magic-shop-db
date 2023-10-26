@@ -56,7 +56,12 @@ git clone https://github.com/sorieux/magic-shop-db.git
 cd magic-shop-db
 ```
 
-3. Start the PostgreSQL container:
+3. Adjust the permissions to ensure that all files and subdirectories under the db/ directory are readable:
+```
+chmod -R a+r db/ 
+```
+
+4. Start the PostgreSQL container:
 
 ```
 docker compose up
