@@ -65,7 +65,6 @@ chmod -R a+rx db/
 
 ```
 docker compose up
-
 ```
 
 ![It's Magic !!!](https://media.tenor.com/kKX3uh8mm_kAAAAC/i-love-magic-magical.gif)
