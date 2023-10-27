@@ -58,7 +58,7 @@ cd magic-shop-db
 
 3. Adjust the permissions to ensure that all files and subdirectories under the db/ directory are readable:
 ```
-chmod -R a+r db/ 
+chmod -R a+rx db/ 
 ```
 
 4. Start the PostgreSQL container:
