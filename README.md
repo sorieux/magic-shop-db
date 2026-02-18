@@ -69,7 +69,7 @@ SELECT name, total_spent FROM vw_customer_stats LIMIT 10;
 SELECT category, total_revenue FROM vw_sales_by_category;
 
 -- Revenue per month
-SELECT month, revenue FROM vw_monthly_revenue;
+SELECT revenue_month, revenue FROM vw_monthly_revenue;
 ```
 
 ## Prerequisites

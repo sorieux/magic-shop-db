@@ -13,15 +13,15 @@ CREATE TABLE tbl_products (
 
 CREATE TABLE tbl_orders (
     order_id SERIAL PRIMARY KEY,
-    customer_id INT REFERENCES tbl_customers (customer_id) ON DELETE CASCADE,
+    customer_id INT NOT NULL REFERENCES tbl_customers (customer_id) ON DELETE CASCADE,
     order_date DATE NOT NULL,
     order_status VARCHAR(20) NOT NULL CHECK (order_status IN ('pending', 'completed', 'canceled'))
 );
 
 CREATE TABLE tbl_order_details (
     order_detail_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES tbl_orders (order_id) ON DELETE CASCADE,
-    product_id INT REFERENCES tbl_products (product_id) ON DELETE CASCADE,
+    order_id INT NOT NULL REFERENCES tbl_orders (order_id) ON DELETE CASCADE,
+    product_id INT NOT NULL REFERENCES tbl_products (product_id) ON DELETE CASCADE,
     quantity INT NOT NULL CHECK (quantity > 0)
 );
 

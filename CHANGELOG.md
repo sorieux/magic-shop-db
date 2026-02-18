@@ -16,8 +16,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - `.env.example` for local credential setup
 - `.gitignore` for Python artefacts and `.env`
 - `.sqlfluff` configuration file (postgres dialect, explicit aliases, consistent casing)
-- `pyproject.toml` with pytest configuration
-- `requirements-test.txt` pinning psycopg2-binary and pytest
+- `pyproject.toml` with pytest configuration and `[dependency-groups]` (test, lint)
+- `uv.lock` for fully reproducible installs via `uv`
 - `restart: unless-stopped` and `healthcheck` in `docker-compose.yml`
 
 ### Changed

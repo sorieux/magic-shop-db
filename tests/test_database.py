@@ -255,16 +255,38 @@ class TestViews:
         with db_conn.cursor() as cur:
             cur.execute("SELECT * FROM vw_order_summary LIMIT 1")
             col_names = {desc[0] for desc in cur.description}
-        expected = {
-            "order_id",
-            "customer_name",
-            "gender",
-            "order_date",
-            "order_status",
-            "item_count",
-            "total_amount",
-        }
-        assert expected <= col_names
+        assert {
+            "order_id", "customer_name", "gender",
+            "order_date", "order_status", "item_count", "total_amount",
+        } <= col_names
+
+    def test_vw_sales_by_product_columns(self, db_conn):
+        with db_conn.cursor() as cur:
+            cur.execute("SELECT * FROM vw_sales_by_product LIMIT 1")
+            col_names = {desc[0] for desc in cur.description}
+        assert {
+            "product_id", "product_name", "category", "unit_price",
+            "order_count", "total_quantity_sold", "total_revenue",
+        } <= col_names
+
+    def test_vw_sales_by_category_columns(self, db_conn):
+        with db_conn.cursor() as cur:
+            cur.execute("SELECT * FROM vw_sales_by_category LIMIT 1")
+            col_names = {desc[0] for desc in cur.description}
+        assert {
+            "category", "product_count", "order_count",
+            "total_quantity_sold", "total_revenue",
+        } <= col_names
+
+    def test_vw_customer_stats_columns(self, db_conn):
+        with db_conn.cursor() as cur:
+            cur.execute("SELECT * FROM vw_customer_stats LIMIT 1")
+            col_names = {desc[0] for desc in cur.description}
+        assert {
+            "customer_id", "name", "gender", "total_orders",
+            "completed_orders", "canceled_orders", "pending_orders",
+            "total_spent", "first_order_date", "last_order_date",
+        } <= col_names
 
     def test_vw_customer_stats_total_spent_non_negative(self, db_conn):
         with db_conn.cursor() as cur:

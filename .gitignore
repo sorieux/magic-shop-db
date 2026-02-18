@@ -11,3 +11,10 @@ __pycache__/
 dist/
 .venv/
 venv/
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
