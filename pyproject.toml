@@ -1,0 +1,17 @@
+[project]
+name = "magic-shop-db"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+test = [
+    "psycopg2-binary==2.9.9",
+    "pytest==8.3.3",
+]
+lint = [
+    "sqlfluff==3.2.5",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
