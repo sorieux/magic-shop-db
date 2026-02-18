@@ -13,15 +13,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v5
 
-      - name: Install sqlfluff
-        run: pip install sqlfluff==3.2.5
+      - name: Install lint dependencies
+        run: uv sync --group lint
 
       - name: Lint schema
-        run: sqlfluff lint db/init/01_schema.sql
+        run: uv run sqlfluff lint db/init/01_schema.sql
 
   test:
     name: Integration tests
@@ -44,15 +42,13 @@ jobs:
             'until docker compose exec -T db pg_isready -U harry -d magic-shop -q; do sleep 2; done'
           echo "Database is ready."
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v5
 
       - name: Install test dependencies
-        run: pip install -r requirements-test.txt
+        run: uv sync --group test
 
       - name: Run tests
-        run: pytest tests/ -v --tb=short
+        run: uv run pytest tests/ -v --tb=short
         env:
           DB_HOST: localhost
           DB_PORT: 5432

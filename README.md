@@ -123,8 +123,8 @@ make test   # starts the DB if needed, then runs the full suite
 Or manually:
 
 ```bash
-pip install -r requirements-test.txt
-pytest tests/ -v
+uv sync --group test
+uv run pytest tests/ -v
 ```
 
 ## SQL Linting
@@ -132,7 +132,9 @@ pytest tests/ -v
 The schema file is linted with [sqlfluff](https://sqlfluff.com) (postgres dialect).
 
 ```bash
-pip install sqlfluff==3.2.5
+uv sync --group lint
+uv run sqlfluff lint db/init/01_schema.sql
+# or simply:
 make lint
 ```
 
