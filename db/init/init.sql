@@ -1,7 +1,7 @@
 CREATE TABLE tbl_customers (
     customer_id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    gender VARCHAR(50) NOT NULL CHECK (gender IN ('Male', 'Female', 'Other'))
+    gender VARCHAR(10) NOT NULL CHECK (gender IN ('Male', 'Female', 'Other'))
 );
 
 CREATE TABLE tbl_products (
