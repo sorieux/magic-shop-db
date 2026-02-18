@@ -275,3 +275,9 @@ class TestViews:
         with db_conn.cursor() as cur:
             cur.execute("SELECT MIN(revenue) FROM vw_monthly_revenue")
             assert cur.fetchone()[0] > 0
+
+    def test_vw_monthly_revenue_columns(self, db_conn):
+        with db_conn.cursor() as cur:
+            cur.execute("SELECT * FROM vw_monthly_revenue LIMIT 1")
+            col_names = {desc[0] for desc in cur.description}
+        assert {"revenue_month", "order_count", "revenue"} <= col_names

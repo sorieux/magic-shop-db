@@ -13,26 +13,26 @@ CREATE TABLE tbl_products (
 
 CREATE TABLE tbl_orders (
     order_id SERIAL PRIMARY KEY,
-    customer_id INT REFERENCES tbl_customers(customer_id) ON DELETE CASCADE,
+    customer_id INT REFERENCES tbl_customers (customer_id) ON DELETE CASCADE,
     order_date DATE NOT NULL,
     order_status VARCHAR(20) NOT NULL CHECK (order_status IN ('pending', 'completed', 'canceled'))
 );
 
 CREATE TABLE tbl_order_details (
     order_detail_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES tbl_orders(order_id) ON DELETE CASCADE,
-    product_id INT REFERENCES tbl_products(product_id) ON DELETE CASCADE,
+    order_id INT REFERENCES tbl_orders (order_id) ON DELETE CASCADE,
+    product_id INT REFERENCES tbl_products (product_id) ON DELETE CASCADE,
     quantity INT NOT NULL CHECK (quantity > 0)
 );
 
 -- Indexes on foreign keys for better join performance
-CREATE INDEX idx_orders_customer_id ON tbl_orders(customer_id);
-CREATE INDEX idx_order_details_order_id ON tbl_order_details(order_id);
-CREATE INDEX idx_order_details_product_id ON tbl_order_details(product_id);
+CREATE INDEX idx_orders_customer_id ON tbl_orders (customer_id);
+CREATE INDEX idx_order_details_order_id ON tbl_order_details (order_id);
+CREATE INDEX idx_order_details_product_id ON tbl_order_details (product_id);
 
 -- Indexes on frequently filtered columns
-CREATE INDEX idx_orders_order_date ON tbl_orders(order_date);
-CREATE INDEX idx_orders_order_status ON tbl_orders(order_status);
+CREATE INDEX idx_orders_order_date ON tbl_orders (order_date);
+CREATE INDEX idx_orders_order_status ON tbl_orders (order_status);
 
 -- View: full order summary with customer name and total amount
 CREATE VIEW vw_order_summary AS
@@ -45,9 +45,9 @@ SELECT
     COUNT(od.order_detail_id) AS item_count,
     SUM(od.quantity * p.unit_price) AS total_amount
 FROM tbl_orders AS o
-JOIN tbl_customers AS c ON c.customer_id = o.customer_id
-JOIN tbl_order_details AS od ON od.order_id = o.order_id
-JOIN tbl_products AS p ON p.product_id = od.product_id
+INNER JOIN tbl_customers AS c ON o.customer_id = c.customer_id
+INNER JOIN tbl_order_details AS od ON o.order_id = od.order_id
+INNER JOIN tbl_products AS p ON od.product_id = p.product_id
 GROUP BY o.order_id, c.name, c.gender, o.order_date, o.order_status;
 
 -- View: sales stats per product (completed orders only)
@@ -61,8 +61,8 @@ SELECT
     SUM(od.quantity) AS total_quantity_sold,
     SUM(od.quantity * p.unit_price) AS total_revenue
 FROM tbl_products AS p
-LEFT JOIN tbl_order_details AS od ON od.product_id = p.product_id
-LEFT JOIN tbl_orders AS o ON o.order_id = od.order_id AND o.order_status = 'completed'
+LEFT JOIN tbl_order_details AS od ON p.product_id = od.product_id
+LEFT JOIN tbl_orders AS o ON od.order_id = o.order_id AND o.order_status = 'completed'
 GROUP BY p.product_id, p.product_name, p.category, p.unit_price
 ORDER BY total_revenue DESC NULLS LAST;
 
@@ -75,8 +75,8 @@ SELECT
     SUM(od.quantity) AS total_quantity_sold,
     SUM(od.quantity * p.unit_price) AS total_revenue
 FROM tbl_products AS p
-LEFT JOIN tbl_order_details AS od ON od.product_id = p.product_id
-LEFT JOIN tbl_orders AS o ON o.order_id = od.order_id AND o.order_status = 'completed'
+LEFT JOIN tbl_order_details AS od ON p.product_id = od.product_id
+LEFT JOIN tbl_orders AS o ON od.order_id = o.order_id AND o.order_status = 'completed'
 GROUP BY p.category
 ORDER BY total_revenue DESC NULLS LAST;
 
@@ -90,25 +90,28 @@ SELECT
     COUNT(DISTINCT CASE WHEN o.order_status = 'completed' THEN o.order_id END) AS completed_orders,
     COUNT(DISTINCT CASE WHEN o.order_status = 'canceled' THEN o.order_id END) AS canceled_orders,
     COUNT(DISTINCT CASE WHEN o.order_status = 'pending' THEN o.order_id END) AS pending_orders,
-    COALESCE(SUM(CASE WHEN o.order_status = 'completed' THEN od.quantity * p.unit_price END), 0) AS total_spent,
+    COALESCE(
+        SUM(CASE WHEN o.order_status = 'completed' THEN od.quantity * p.unit_price END),
+        0
+    ) AS total_spent,
     MIN(o.order_date) AS first_order_date,
     MAX(o.order_date) AS last_order_date
 FROM tbl_customers AS c
-LEFT JOIN tbl_orders AS o ON o.customer_id = c.customer_id
-LEFT JOIN tbl_order_details AS od ON od.order_id = o.order_id
-LEFT JOIN tbl_products AS p ON p.product_id = od.product_id
+LEFT JOIN tbl_orders AS o ON c.customer_id = o.customer_id
+LEFT JOIN tbl_order_details AS od ON o.order_id = od.order_id
+LEFT JOIN tbl_products AS p ON od.product_id = p.product_id
 GROUP BY c.customer_id, c.name, c.gender
 ORDER BY total_spent DESC;
 
 -- View: monthly revenue from completed orders
 CREATE VIEW vw_monthly_revenue AS
 SELECT
-    DATE_TRUNC('month', o.order_date) AS month,
+    DATE_TRUNC('month', o.order_date) AS revenue_month,
     COUNT(DISTINCT o.order_id) AS order_count,
     SUM(od.quantity * p.unit_price) AS revenue
 FROM tbl_orders AS o
-JOIN tbl_order_details AS od ON od.order_id = o.order_id
-JOIN tbl_products AS p ON p.product_id = od.product_id
+INNER JOIN tbl_order_details AS od ON o.order_id = od.order_id
+INNER JOIN tbl_products AS p ON od.product_id = p.product_id
 WHERE o.order_status = 'completed'
 GROUP BY DATE_TRUNC('month', o.order_date)
-ORDER BY month;
+ORDER BY revenue_month;
