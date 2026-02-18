@@ -1,8 +1,10 @@
 # magic-store-db
 
-This project sets up a Dockerized PostgreSQL database for a fictitious magic shop inspired by the Harry Potter universe. The database is initialized with sample data from CSV files.
+[![CI](https://github.com/sorieux/magic-shop-db/actions/workflows/ci.yml/badge.svg)](https://github.com/sorieux/magic-shop-db/actions/workflows/ci.yml)
 
-The goal of this database is to provide a fun and easy-to-set-up data source for demonstrations or tests. I hope it can be of help to you, and please don't hesitate to share with me how you've made use of it.
+A Dockerized PostgreSQL database for a fictitious magic shop inspired by the Harry Potter universe, pre-loaded with realistic sample data.
+
+The goal is to provide a fun and easy-to-set-up data source for demonstrations, tests, or learning SQL. Feel free to share how you've made use of it!
 
 ## Schema
 
@@ -36,7 +38,6 @@ class tbl_products {
 tbl_order_details  -->  tbl_orders : order_id
 tbl_order_details  -->  tbl_products : product_id
 tbl_orders  -->  tbl_customers : customer_id
-
 ```
 
 ## Seed Data
@@ -50,17 +51,15 @@ tbl_orders  -->  tbl_customers : customer_id
 
 ## Available Views
 
-The database comes with pre-built views to get you started quickly:
+Five views are pre-built so you can start querying immediately:
 
 | View | Description |
 |---|---|
 | `vw_order_summary` | All orders with customer name, item count, and total amount |
 | `vw_sales_by_product` | Revenue and quantity sold per product (completed orders) |
-| `vw_sales_by_category` | Revenue and quantity sold per product category (completed orders) |
+| `vw_sales_by_category` | Revenue and quantity sold per category (completed orders) |
 | `vw_customer_stats` | Per-customer order counts and total spend |
 | `vw_monthly_revenue` | Monthly revenue from completed orders |
-
-Example queries:
 
 ```sql
 -- Top 10 customers by spend
@@ -80,45 +79,64 @@ SELECT month, revenue FROM vw_monthly_revenue;
 
 ## Setup & Running
 
-1. Clone the repository:
-
-```
+```bash
 git clone https://github.com/sorieux/magic-shop-db.git
-```
-
-2. Navigate to the project directory:
-
-```
 cd magic-shop-db
-```
-
-3. Adjust the permissions to ensure that all files and subdirectories under the db/ directory are readable:
-```
 chmod -R a+rx db/
+docker compose up -d
 ```
 
-4. Start the PostgreSQL container:
+The container exposes a healthcheck — the database is ready when `docker compose ps` shows `(healthy)`.
 
-```
-docker compose up
-```
+With Make:
 
-The container includes a healthcheck — it is ready when `docker compose ps` shows `healthy`.
+```bash
+make up    # start in background
+make wait  # block until healthy
+make psql  # open a psql session
+make down  # stop
+make reset # wipe data and restart
+```
 
 ![It's Magic !!!](https://media.tenor.com/kKX3uh8mm_kAAAAC/i-love-magic-magical.gif)
 
 ## Accessing the Database
 
-Once the container is running, you can access the PostgreSQL database using any SQL client with the following credentials:
+| Field | Value |
+|---|---|
+| Host | `localhost` |
+| Port | `5432` |
+| User | `harry` |
+| Password | `potter` |
+| Database | `magic-shop` |
 
-**Host:** localhost
-**Port:** 5432
-**User:** harry
-**Password:** potter
-**Database:** magic-shop
+> **Note:** These credentials are for local development only. Do not use them in any shared or production environment.
 
-> **Note:** These credentials are intended for local development only. Do not use them in any shared or production environment.
+## Testing
+
+The project ships with an integration test suite (pytest + psycopg2) that verifies the schema, constraints, views, and referential integrity.
+
+```bash
+make test   # starts the DB if needed, then runs the full suite
+```
+
+Or manually:
+
+```bash
+pip install -r requirements-test.txt
+pytest tests/ -v
+```
+
+## SQL Linting
+
+The schema file is linted with [sqlfluff](https://sqlfluff.com) (postgres dialect).
+
+```bash
+pip install sqlfluff==3.2.5
+make lint
+```
 
 ## Contributing
 
-If you wish to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
+Fork the repository and use a feature branch. Pull requests are warmly welcome.
+See [CHANGELOG.md](CHANGELOG.md) for the history of changes.

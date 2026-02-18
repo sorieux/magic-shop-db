@@ -1,0 +1,13 @@
+# Environment
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.sqlfluff_cache/
+*.egg-info/
+dist/
+.venv/
+venv/
