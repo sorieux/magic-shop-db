@@ -3,6 +3,7 @@ version: '3'
 services:
   db:
     image: postgres:16.0
+    restart: unless-stopped
     environment:
       POSTGRES_USER: harry
       POSTGRES_PASSWORD: potter
@@ -13,7 +14,11 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
       - ./db/seed_data:/data/seed_data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U harry -d magic-shop"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   pgdata:
-
